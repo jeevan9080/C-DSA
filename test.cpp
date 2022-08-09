@@ -3,7 +3,7 @@
 #include<string>
 #include<algorithm>
 using namespace std;
-
+//check
 int main(){
 
     int n,A[20],s,i;
