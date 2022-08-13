@@ -1,33 +1,24 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-void sort(int n){
-    
-    int A[20],i;
-    for(i=0;i<n;i++){
-        cin>>A[i];
-    }
-    int counter=1;
-    while(counter<n){
-        for(i=0;i<n-counter;i++){
-            if(A[i+1]<A[i]){
-                int temp=A[i];
-                A[i]=A[i+1];
-                A[i+1]=temp;
-            }
-    }
-    counter++;
-    }
-
-    for(i=0;i<n;i++){
-        cout<<A[i]<<" ";
-    }
-
-}
-
 int main(){
 
-    int n=5;
-    sort(n);
+    int n=10979,A[20],ls=0,rs=0;
+    string s = to_string(n);
+    cout<<s<<endl;
+    int len=s.length();
+    for(int i=0;i<len;i++){
+        if(i%2==0){
+            ls+=(s[i]-'0');
+        }
+        else{
+            rs+=(s[i]-'0');
+        }
+    }
+    if(((rs-ls)%11)==0){
+        cout<<"yes";
+    }
+    else{
+        cout<<"no";
+    }
     return 0;
 }
