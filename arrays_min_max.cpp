@@ -14,7 +14,7 @@ int main(){
 
     int minno=INT_MAX,maxno=INT_MIN;
     for(i=0;i<n;i++){
-        maxno=max(maxno,A[i]);
+        maxno=max(maxno,A[i]);//
         minno=min(minno,A[i]);
     }
 

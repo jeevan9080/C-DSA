@@ -2,12 +2,18 @@
 using namespace std;
 
 void reverse(int A[],int n){
-    int maxno=INT_MIN,minno=INT_MAX;
-    for(int i=0;i<n;i++){
-        maxno=max(maxno,A[i]);
-        minno=min(minno,A[i]);
+    int start=0,end=n-1;
+    while(start<end){
+        int temp=A[start];
+        A[start]=A[end];
+        A[end]=temp;
+        start++;
+        end--;
     }
-    cout<<maxno<<" "<<minno;
+
+    for(int i=0;i<n;i++){
+        cout<<A[i]<<" ";
+    }
 }
 
 
