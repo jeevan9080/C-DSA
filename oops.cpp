@@ -36,6 +36,13 @@ class Student{
     ~Student(){
         cout<<"Destructor"<<endl;
     }
+
+    bool operator == (Student &a){
+        if(name==a.name && age==a.age && gender==a.gender){
+            return true;
+        }
+        return false;
+    }
 };
 
 int main(){
@@ -58,6 +65,13 @@ int main(){
     //a.printinfo();
     Student b;
     Student c = a;
+
+    if(c==a){
+        cout<<"same"<<endl;
+    }
+    else{
+        cout<<"not same"<<endl;
+    }
 
     return 0;
 }
