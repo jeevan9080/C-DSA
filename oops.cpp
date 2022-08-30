@@ -60,7 +60,7 @@ int main(){
     for(int i=0;i<2;i++){
         A[i].printinfo();
     }*/
-
+//
     Student a("jeevan",21,0);
     //a.printinfo();
     Student b;
