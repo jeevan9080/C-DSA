@@ -1,24 +1,37 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+class Student{
+    public:
+    string name;
+    int age;
+    bool gender;
+
+
+    void printinfo(){
+        cout<<"Name:";
+        cout<<name<<endl;
+        cout<<"Age:";
+        cout<<age<<endl;
+        cout<<"Gender:";
+        cout<<gender<<endl;
+    }
+};
+
 int main(){
 
-    int n=10979,A[20],ls=0,rs=0;
-    string s = to_string(n);
-    cout<<s<<endl;
-    int len=s.length();
-    for(int i=0;i<len;i++){
-        if(i%2==0){
-            ls+=(s[i]-'0');
-        }
-        else{
-            rs+=(s[i]-'0');
-        }
+    Student A[2];
+    for(int i=0;i<2;i++){
+        cout<<"Name:";
+        cin>>A[i].name;
+        cout<<"Age:";
+        cin>>A[i].age;
+        cout<<"Gender:";
+        cin>>A[i].gender;
     }
-    if(((rs-ls)%11)==0){
-        cout<<"yes";
-    }
-    else{
-        cout<<"no";
+
+    for(int i=0;i<2;i++){
+        A[i].printinfo();
     }
     return 0;
 }
