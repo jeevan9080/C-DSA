@@ -1,37 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Student{
+class node{
     public:
-    string name;
-    int age;
-    bool gender;
+    int data;
+    node* next;
 
+    void insertAtTail(node* &head,int val){
 
-    void printinfo(){
-        cout<<"Name:";
-        cout<<name<<endl;
-        cout<<"Age:";
-        cout<<age<<endl;
-        cout<<"Gender:";
-        cout<<gender<<endl;
+        node* n = new node(val);
+
+        if(head==NULL){
+            head=n;
+        }
+
+        node* temp=head;
+
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+
+        temp->next=n;
     }
+
 };
 
+
 int main(){
+    node* head=NULL;
 
-    Student A[2];
-    for(int i=0;i<2;i++){
-        cout<<"Name:";
-        cin>>A[i].name;
-        cout<<"Age:";
-        cin>>A[i].age;
-        cout<<"Gender:";
-        cin>>A[i].gender;
-    }
+    insertAtTail(head,1);
 
-    for(int i=0;i<2;i++){
-        A[i].printinfo();
-    }
     return 0;
 }
