@@ -29,6 +29,19 @@ class node{
         temp->next=n;
     }
 
+    void deletion(node* &head,int val){
+
+        node* temp=head;
+        while(temp->next->data!=val){
+            temp=temp->next;
+        }
+
+        node* todelete = temp->next;
+        temp->next=temp->next->next;
+
+        delete todelete;
+    }
+
     void display(node* head){
         node* temp=head;
         while(temp!=NULL){
@@ -46,6 +59,10 @@ int main(){
     insertAtTail(head,1);
     insertAtTail(head,2);
     insertAtTail(head,3);
+    display(head);
+
+    deletion(head,2);
+
     display(head);
     return 0;
 }
