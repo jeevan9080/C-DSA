@@ -28,6 +28,54 @@ void insertAtTail(node* &head,int val){
     temp->next=n;
 }
 
+void deletion(node* &head,int val){
+
+    node* temp=head;
+    while(temp->next->data!=val){
+        temp=temp->next;
+    }
+
+    node* todelete=temp->next;
+    temp->next=temp->next->next;
+
+    delete todelete;
+}
+
+node* reverse(node* &head){
+    node* prevptr=NULL;
+    node* currptr=head;
+    node* nextptr;
+
+    while(currptr!=NULL){
+        nextptr=currptr->next;
+        currptr->next=prevptr;
+        prevptr=currptr;
+        currptr=nextptr;
+    }
+    return prevptr;
+}
+
+node* reversek(node* &head,int k){
+
+    node* prevptr=NULL;
+    node* currptr=head;
+    node* nextptr;
+
+    int count=0;
+    while(currptr!=NULL && count<k){
+        nextptr=currptr->next;
+        currptr->next=prevptr;
+        prevptr=currptr;
+        currptr=nextptr;
+        count++;
+    }
+
+    if(nextptr!=0){
+    head->next = reversek(nextptr,k);
+    }
+    return prevptr;
+}
+
 void display(node* head){
 
     node* temp=head;
@@ -48,7 +96,16 @@ int main(){
     insertAtTail(head,4);
     insertAtTail(head,5);
     insertAtTail(head,6);
-
     display(head);
+    /*deletion(head,4);
+    display(head);*/
+
+    /*
+    node* reversehead = reverse(head);
+    display(reversehead);*/
+    int k=2;
+    node* reversekhead = reversek(head,2);
+    display(reversekhead);
+
     return 0;
 }
