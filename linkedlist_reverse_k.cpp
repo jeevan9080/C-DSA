@@ -78,5 +78,5 @@ int main(){
     node* newhead = reversek(head,k);
     display(newhead);
 
-    return 0;
+    return 0;//
 }
