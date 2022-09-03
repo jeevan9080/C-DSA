@@ -1,102 +1,66 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class node{
-    public:
+struct node{
     int data;
-    node* next;
-    node* prev;
+    struct node* left;
+    struct node* right;
 
     node(int val){
         data=val;
-        next=NULL;
-        prev=NULL;
-    }    
+        left=NULL;
+        right=NULL;
+    }
 };
 
-void insertAtHead(node* &head,int val){
+void preorder(struct node* root){
 
-    node* n = new node(val);
-    n->next=head;
-    if(head!=NULL){
-        head->prev=n;
-    }
-    head=n;
-}
-
-void insertAtTail(node* &head,int val){
-
-    if(head==NULL){
-        insertAtHead(head,val);
+    if(root==NULL){
         return;
     }
 
-    node* n = new node(val);
-    node* temp=head;
-    while(temp->next!=NULL){
-        temp=temp->next;
-    }
-
-    temp->next=n;
-    n->prev=temp;
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
 }
 
-void toDeleteHead(node* &head,int pos){
-    node* todelete = head;
-    head=head->next;
-    head->prev=NULL;
+void inorder(struct node* root){
 
-    delete todelete;
-}
-
-void deletion(node* &head,int pos){
-
-    if(pos==1){
-        toDeleteHead(head,pos);
+    if(root==NULL){
         return;
     }
-
-    node*temp=head;
-    int count=1;
-    while(temp!=NULL && count!=pos){
-        temp=temp->next;
-        count++;
-    }
-    temp->prev->next=temp->next;
-    if(temp->next!=NULL){
-        temp->next->prev=temp->prev;
-    }
-
-    delete temp;
-
+    preorder(root->left);
+    cout<<root->data<<" ";
+    preorder(root->right);
 }
 
-void display(node* head){
+void postorder(struct node* root){
 
-    node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<"->";
-        temp=temp->next;
+    if(root==NULL){
+        return;
     }
-    cout<<"NULL"<<endl;
+    preorder(root->left);
+    preorder(root->right);
+    cout<<root->data<<" ";
+
 }
 
 int main(){
 
-    node* head=NULL;
+    struct node* root = new node(1);
+    root->left=new node(2);
+    root->right=new node(3);
+    root->left->left=new node(4);
+    root->left->right=new node(5);
+    root->right->left=new node(6);
+    root->right->right=new node(7);
+    preorder(root);
+    cout<<endl;
+    inorder(root);
+    cout<<endl;
+    postorder(root);
+    cout<<endl;
 
-    insertAtTail(head,1);
-    insertAtTail(head,2);
-    insertAtTail(head,3);
-    insertAtTail(head,4);
-    insertAtTail(head,5);
-    insertAtTail(head,6);
-    display(head);
-    //insertAtHead(head,7);
-    deletion(head,3);
-    display(head);
-
-  
 
     return 0;
 }
