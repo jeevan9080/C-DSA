@@ -1,43 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void Aunion(int A1[],int A2[],int n,int m){
+void rotate(int A[],int n){
 
-    int i=0,j=0,count=0;
-    while(i<n && j<m){
-        if(A1[i]<A2[j]){
-            cout<<A1[i++]<<" ";
-            count++;
-        }
-        else if(A1[i]>A2[j]){
-            cout<<A2[j++]<<" ";
-            count++;
-        }
-        else{
-            cout<<A2[j++]<<" ";
-            i++;
-            count++;
-        }
+    int x=A[n-1];
+    for(int i=n-1;i>0;i--){
+        A[i]=A[i-1];
     }
-    while(i<n){
-        cout<<A1[i++]<<" ";
-        count++;
-    }
-    while(j<m){
-        cout<<A2[j++]<<" ";
-        count++;
-    }
+    A[0]=x;
 
-    cout<<endl<<count<<endl;
+    for(int i=0;i<n;i++){
+        cout<<A[i]<<" ";
+    }
 }
 
 int main(){
 
-    int A1[]={85,25,1,32,54,6};
-    int A2[]={85,2};
-    int n=sizeof(A1)/sizeof(A1[0]);
-    int m=sizeof(A2)/sizeof(A2[0]);
+    int A[]={85,25,1,32,54,6};
+    int n=sizeof(A)/sizeof(A[0]);
 
-    Aunion(A1,A2,n,m);
+    rotate(A,n);
     return 0;
 }
