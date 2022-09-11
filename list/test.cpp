@@ -1,24 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void rotate(int A[],int n){
+void merge(vector<int> &A1,vector<int> &A2,int A3[],int n1,int n2,int n){
 
-    int x=A[n-1];
-    for(int i=n-1;i>0;i--){
-        A[i]=A[i-1];
+    int i=0,j=0,k=0;
+    while(i<n1){
+        A3[k++]=A1[i++];
     }
-    A[0]=x;
-
-    for(int i=0;i<n;i++){
-        cout<<A[i]<<" ";
+    while(j<n2){
+        A3[k++]=A2[j++];
     }
+    sort(A3,A3+n);
 }
+
 
 int main(){
 
-    int A[]={85,25,1,32,54,6};
-    int n=sizeof(A)/sizeof(A[0]);
+    vector<int> A1 = {1,3,54,7,8};
+    vector<int> A2 = {2,3,55,6,77};
 
-    rotate(A,n);
+    int n1=A1.size(),n2=A2.size();
+    int n=n1+n2;
+    int A3[n];
+    merge(A1,A2,A3,n1,n2,n);
+
+    for(int i=0;i<n;i++){
+        cout<<A3[i]<<" ";
+    }
     return 0;
 }
