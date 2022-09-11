@@ -8,7 +8,7 @@ void Asort(vector<int> &A,int n){
 
 int main(){
 
-    vector<int> A = {22,-1,-33,-22,55,4};
+    vector<int> A = {0,1,2,2,1,1,0,0};
     int n=A.size();
     Asort(A,n);
 
