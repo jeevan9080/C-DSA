@@ -1,21 +1,43 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void Asort(vector<int> &A,int n){
+void Aunion(int A1[],int A2[],int n,int m){
 
-    sort(A.begin(),A.end());
+    int i=0,j=0,count=0;
+    while(i<n && j<m){
+        if(A1[i]<A2[j]){
+            cout<<A1[i++]<<" ";
+            count++;
+        }
+        else if(A1[i]>A2[j]){
+            cout<<A2[j++]<<" ";
+            count++;
+        }
+        else{
+            cout<<A2[j++]<<" ";
+            i++;
+            count++;
+        }
+    }
+    while(i<n){
+        cout<<A1[i++]<<" ";
+        count++;
+    }
+    while(j<m){
+        cout<<A2[j++]<<" ";
+        count++;
+    }
+
+    cout<<endl<<count<<endl;
 }
 
 int main(){
 
-    vector<int> A = {22,-1,-33,-22,55,4};
-    int n=A.size();
-    Asort(A,n);
+    int A1[]={85,25,1,32,54,6};
+    int A2[]={85,2};
+    int n=sizeof(A1)/sizeof(A1[0]);
+    int m=sizeof(A2)/sizeof(A2[0]);
 
-    for(int i:A){
-        cout<<i<<" ";
-    }
-
-    
+    Aunion(A1,A2,n,m);
     return 0;
 }
