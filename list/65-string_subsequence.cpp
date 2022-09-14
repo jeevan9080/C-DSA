@@ -17,6 +17,6 @@ int main(){
 
     string s = "abc";
     int n=s.length();
-    subsequence("",0,n,s);
+    subsequence(" ",0,n,s);
     return 0;
 }
