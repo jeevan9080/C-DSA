@@ -28,7 +28,7 @@ int main(){
 	sort(A,A+n);
 	cout<<mostFrequent(A,n);
 
-//change
+//chang
 
 	return 0;
 }
